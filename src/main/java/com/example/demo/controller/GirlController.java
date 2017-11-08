@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import com.example.demo.domain.Girl;
 import com.example.demo.reposity.GirlReposity;
 import com.example.demo.service.GirlService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +18,13 @@ import java.util.List;
 @RestController
 public class GirlController {
 
+    private final static Logger logger = LoggerFactory.getLogger(GirlController.class);
+
     @Autowired
     private GirlReposity girlReposity;
 
     @Autowired
-    private GirlService girlService;
+    private GirlService service;
 
     /**
      * 查询女生列表
@@ -28,6 +32,7 @@ public class GirlController {
      */
     @GetMapping(value = "/girls")
     public List<Girl> getGirls(){
+        logger.info("获取所有的女生！");
         return girlReposity.findAll();
     }
 
@@ -98,6 +103,6 @@ public class GirlController {
 
     @PostMapping("/girls/two")
     public void addTwoGirls(){
-        girlService.insertTwo();
+        service.insertTwo();
     }
 }

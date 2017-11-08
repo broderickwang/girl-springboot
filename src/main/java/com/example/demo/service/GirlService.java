@@ -26,7 +26,7 @@ public class GirlService {
 
         Girl b = new Girl();
         b.setAge(19);
-        b.setCupSize("Be");
+        b.setCupSize("B");
         girlReposity.save(b);
     }
 }
