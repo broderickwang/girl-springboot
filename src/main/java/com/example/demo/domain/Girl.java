@@ -1,9 +1,12 @@
 package com.example.demo.domain;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by 王成达 on 2017/11/8.
@@ -19,6 +22,9 @@ public class Girl {
 
     @Min(value = 18,message = "未成年少女禁止入内！")
     private Integer age;
+
+    @NotNull(message = "金额必填")
+    private Double money;
 
     public Girl() {
     }
@@ -45,6 +51,14 @@ public class Girl {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public Double getMoney() {
+        return money;
+    }
+
+    public void setMoney(Double money) {
+        this.money = money;
     }
 
     @Override
