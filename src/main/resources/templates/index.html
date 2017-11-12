@@ -1,10 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Index Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--<style th:inline="css">
+        body{
+            background-color: [[${bgcolor}]];
+        }
+    </style>-->
 </head>
 <body>
-hello index
+<p th:text="${message}">欢迎词</p>
+
+<p th:utext="${umessage}"></p>
+
+<div >
+    <p th:text="${user.name}" th:id="${user.name}"></p>
+    <p th:text="${user.sex}"></p>
+    <p th:text="${user.age}"></p>
+</div>
+
+<p th:text="#{welcome.message}"></p>
+
+<input type="checkbox" name="rememberme" th:checked="${rememberme}">记住我</input>
+
+<div>
+
+    <p th:text="${#ctx.getLocale()}+'-'+${now}"></p>
+    <p th:text="${#vars.get('message')}"></p>
+    <p th:text="${#ctx.getVariables().get('now')}"></p>
+    <a th:attr="href=@{https://www.google.com.hk}">谷歌一下你就知道</a>
+</div>
+
+<div>
+    <span>thymeleaf遍历map ctx属性：</span>
+    <select name="ctxpro" id="ctxpro">
+        <option th:each="prop : ${#ctx.getVariables()}" th:text="${prop}" th:item-index="${status.count}">
+
+        </option>
+    </select>
+</div>
+<div>
+    定义属性
+    <div>
+        <p th:with="name=${user.name},age=${user.age}">
+            <span th:text="${name}"></span>
+            <span th:text="${age}"></span>
+        </p>
+    </div>
+</div>
+
+<div>
+    内联表达式
+    <p> Message is : [(${umessage})]</p>
+</div>
+<script th:inline="javascript">
+    var user = [[${user}]];
+    alert("用户名：" + user.name);
+</script>
 </body>
 </html>
