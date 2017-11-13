@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by 王成达 on 2017/11/8.
  */
@@ -43,6 +45,7 @@ public class GirlService {
             throw new GirlException(ResultEnum.MIDDLE_SCHOOL);
         }
     }
+
 
     /**
      * 通过ID查询一个女生
