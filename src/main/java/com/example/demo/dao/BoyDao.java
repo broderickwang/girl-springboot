@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /*************************
  * Created by Broderick
  * Project:demo
@@ -20,6 +22,6 @@ public interface BoyDao {
 
     Boy selectone(Integer id);
 
-    Boy findByName(@Param("name") String name);
+    List<Boy> findByName(@Param("name") String name);
 
 }

@@ -5,7 +5,7 @@
 <mapper namespace="com.example.demo.dao.BoyDao">
 
     <resultMap id="BaseMap" type="com.example.demo.domain.Boy">
-        <result column="id" property="id" />
+        <id column="id" property="id" />
         <result column="name" property="name" />
         <result column="name_cap" property="nameCap" />
     </resultMap>

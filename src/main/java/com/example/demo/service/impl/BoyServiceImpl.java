@@ -43,7 +43,7 @@ public class BoyServiceImpl  implements BoyService{
     }
 
     @Override
-    public Boy findByName(String userName) {
+    public List<Boy> findByName(String userName) {
         return boyDao.findByName(userName);
     }
 }

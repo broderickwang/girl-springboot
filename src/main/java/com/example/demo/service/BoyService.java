@@ -21,5 +21,5 @@ public interface BoyService {
 
     Boy selectone (Integer id);
 
-    Boy findByName(String userName);
+    List<Boy> findByName(String userName);
 }
